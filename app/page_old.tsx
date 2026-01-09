@@ -26,6 +26,7 @@ interface Product {
   inStock: boolean
 }
 
+// Keep dummy testimonials
 const testimonials = [
   {
     name: "Rahman Karim",
@@ -83,6 +84,7 @@ export default function HomePage() {
     <div className="min-h-screen bg-[#F4EBD0]">
       <Header />
 
+      {/* SEO SECTION 1: HERO SECTION - Contains the main H1 tag (only one per page) - Alt text optimized with primary keywords - Descriptive content for search engines */}
       <section className="relative h-screen overflow-hidden" aria-label="Hero section featuring organic products Pakistan">
         <motion.div style={{ y: y1, opacity }} className="absolute inset-0 z-0">
           <Image
@@ -110,6 +112,7 @@ export default function HomePage() {
               </Badge>
             </motion.div>
 
+            {/* SEO: Main H1 Tag - Only one H1 per page for SEO best practices */}
             <motion.h1
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -158,6 +161,7 @@ export default function HomePage() {
           </div>
         </motion.div>
 
+        {/* SEO: Decorative animation elements with aria-hidden for accessibility */}
         <motion.div
           animate={{
             y: [0, -20, 0],
@@ -165,7 +169,7 @@ export default function HomePage() {
           }}
           transition={{
             duration: 6,
-            repeat: Infinity,
+            repeat: Number.POSITIVE_INFINITY,
             ease: "easeInOut",
           }}
           className="absolute top-20 right-20 w-16 h-16 opacity-30"
@@ -181,7 +185,7 @@ export default function HomePage() {
           }}
           transition={{
             duration: 8,
-            repeat: Infinity,
+            repeat: Number.POSITIVE_INFINITY,
             ease: "easeInOut",
             delay: 2,
           }}
@@ -192,6 +196,7 @@ export default function HomePage() {
         </motion.div>
       </section>
 
+      {/* SEO SECTION 2: WHY CHOOSE ORGANIC PRODUCTS - INFORMATIVE CONTENT - H2 tag for content structure - 200+ words explaining benefits and trust factors - Keywords naturally integrated */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
@@ -200,6 +205,7 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12 max-w-4xl mx-auto"
           >
+            {/* SEO: H2 tag - Descriptive heading with keywords */}
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#355E3B] mb-6">
               Why Choose Organic Products Pakistan from Origiganics by Wallian
             </h2>
@@ -228,6 +234,8 @@ export default function HomePage() {
             </div>
           </motion.div>
 
+          {/* SEO: Feature icons with descriptive labels */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {[
               { 
@@ -269,6 +277,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* SEO SECTION 3: ORGANIC PRODUCT RANGE - H2 tag describing product categories - 150+ words about product variety - Natural keyword integration */}
       <section className="py-16 bg-[#F4EBD0]">
         <div className="container mx-auto px-4">
           <motion.div
@@ -277,6 +286,7 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12 max-w-4xl mx-auto"
           >
+            {/* SEO: H2 tag for product categories */}
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#355E3B] mb-6">
               Our Range of Organic Products & Natural Foods
             </h2>
@@ -301,7 +311,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* SEO SECTION 4: FEATURED PRODUCTS - H2 tag for featured section - Product images with SEO-optimized alt text - Structured product information */}
       <section className="py-20 bg-white">
+        <div className="container mx-auto px-4">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -309,6 +321,7 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
+            {/* SEO: H2 tag for featured products section */}
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#355E3B] mb-4">
               Featured Organic Products This Season
             </h2>
@@ -318,8 +331,10 @@ export default function HomePage() {
             </p>
           </motion.div>
 
+          {/* SEO: Product grid with optimized images and alt text */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {isLoading ? (
+              // Loading skeletons
               [...Array(4)].map((_, index) => (
                 <div key={index} className="animate-pulse">
                   <Card className="overflow-hidden border-0 shadow-lg bg-white">
@@ -345,6 +360,7 @@ export default function HomePage() {
                 >
                   <Card className="overflow-hidden border-0 shadow-lg hover:shadow-xl transition-all duration-300 bg-white">
                     <div className="relative">
+                      {/* SEO: Product images with descriptive alt text including keywords */}
                       <Image
                         src={product.images?.[0] || "/placeholder.svg"}
                         alt={`${product.name} - organic dry fruits Pakistan - premium ${product.name.toLowerCase()} natural chemical-free product`}
@@ -401,6 +417,7 @@ export default function HomePage() {
                 </motion.div>
               ))
             ) : (
+              // No products found
               <div className="col-span-full text-center py-12">
                 <p className="text-[#6F4E37] text-lg">No featured products available at the moment.</p>
               </div>
@@ -428,6 +445,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* SEO SECTION 5: CUSTOMER TESTIMONIALS - H2 tag for social proof section - Customer reviews for trust signals - Images with proper alt text */}
       <section className="py-20 bg-[#F4EBD0]">
         <div className="container mx-auto px-4">
           <motion.div
@@ -436,6 +454,7 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
+            {/* SEO: H2 tag for testimonials */}
             <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#355E3B] mb-4">
               What Our Customers Say About Our Organic Products
             </h2>
@@ -461,6 +480,7 @@ export default function HomePage() {
                   </div>
                   <p className="text-[#6F4E37] mb-4 italic">"{testimonial.comment}"</p>
                   <div className="flex items-center gap-3">
+                    {/* SEO: Customer testimonial images with descriptive alt text */}
                     <Image
                       src={testimonial.image || "/placeholder.svg"}
                       alt={`${testimonial.name} from ${testimonial.location} - satisfied customer of organic products Pakistan`}
@@ -481,6 +501,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* SEO SECTION 6: HEALTH BENEFITS - H2 tag for benefits section - 150+ words about health and quality - Natural keyword usage */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
@@ -489,6 +510,7 @@ export default function HomePage() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto"
           >
+            {/* SEO: H2 tag for health benefits */}
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#355E3B] mb-6 text-center">
               Health Benefits of Choosing Chemical-Free Organic Products
             </h2>
@@ -519,7 +541,9 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* SEO SECTION 7: NEWSLETTER SIGNUP - Call to action for engagement - Email collection for marketing */}
       <section className="py-16 bg-[#355E3B]">
+        <div className="container mx-auto px-4 text-center">
         <div className="container mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             <h2 className="text-3xl md:text-4xl font-serif font-bold text-white mb-4">
@@ -533,7 +557,7 @@ export default function HomePage() {
               <input
                 type="email"
                 placeholder="Enter your email for organic product updates"
-                className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-[#D4AF37] outline-none text-gray-900"
+                className="flex-1 px-4 py-3 rounded-lg border-0 focus:ring-2 focus:ring-[#D4AF37] outline-none"
                 aria-label="Email address for newsletter subscription"
               />
               <Button className="bg-[#D4AF37] hover:bg-[#B8941F] text-[#355E3B] font-semibold px-6">
@@ -544,6 +568,7 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* SEO: Footer with site navigation and links */}
       <Footer />
     </div>
   )

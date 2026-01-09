@@ -43,6 +43,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://origiganicsbywallian.com/",
   },
+  icons: {
+    icon: [
+      { url: "/logo.jpeg", sizes: "any", type: "image/jpeg" },
+      { url: "/logo.jpeg", sizes: "16x16", type: "image/jpeg" },
+      { url: "/logo.jpeg", sizes: "32x32", type: "image/jpeg" },
+    ],
+    apple: [
+      { url: "/logo.jpeg", sizes: "180x180", type: "image/jpeg" },
+    ],
+  },
   openGraph: {
     title: "Origiganics By Wallian - Premium Organic Products",
     description: "Premium organic dry fruits and natural beauty products. Ethically sourced from Pakistan's finest orchards.",
@@ -84,35 +94,128 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
+  // Enhanced Organization Schema for SEO
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Organization",
-    name: "Origiganics By Wallian",
+    name: "Origiganics by Wallian",
+    alternateName: "Origiganics Pakistan",
     url: "https://origiganicsbywallian.com/",
     logo: "https://origiganicsbywallian.com/logo.jpeg",
-    description: "Premium organic dry fruits and natural beauty products sourced from Pakistan's finest orchards. Committed to quality, sustainability, and natural wellness.",
+    description: "Leading provider of premium organic dry fruits, natural beauty products, organic oils, and chemical-free organic products sourced from Pakistan's finest orchards. Committed to quality, sustainability, and natural wellness.",
+    slogan: "Nature's Richest, Delivered to Your Door",
+    
+    // Contact Information
     address: {
       "@type": "PostalAddress",
       addressCountry: "PK",
+      addressRegion: "Pakistan",
     },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "Customer Service",
       availableLanguage: ["English", "Urdu"],
     },
+    
+    // Social Media Profiles
     sameAs: [
       "https://facebook.com/origiganicsbywallian",
       "https://instagram.com/origiganicsbywallian",
     ],
+    
+    // Business Details
     founder: {
       "@type": "Person",
       name: "Rahman Karim",
     },
+    
+    // Products & Services
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Organic Products Pakistan",
+      itemListElement: [
+        {
+          "@type": "OfferCatalog",
+          name: "Organic Dry Fruits",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Product",
+                name: "Premium Organic Almonds",
+                description: "100% organic almonds from Kashmir"
+              }
+            },
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Product",
+                name: "Organic Walnuts",
+                description: "Natural chemical-free walnuts"
+              }
+            }
+          ]
+        },
+        {
+          "@type": "OfferCatalog",
+          name: "Organic Oils",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Product",
+                name: "Cold-Pressed Olive Oil",
+                description: "100% organic extra virgin olive oil"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    
+    // Ratings & Reviews
     aggregateRating: {
       "@type": "AggregateRating",
       ratingValue: "4.8",
       reviewCount: "127",
+      bestRating: "5",
+      worstRating: "1"
     },
+    
+    // Business Area Served
+    areaServed: {
+      "@type": "Country",
+      name: "Pakistan"
+    },
+    
+    // Keywords for search
+    keywords: "organic products Pakistan, natural products Pakistan, chemical-free organic products, home made products, organic food, organic oils, organic dry fruits"
+  }
+
+  // WebSite Schema for Search Box & Site Navigation
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Origiganics by Wallian",
+    alternateName: "Origiganics Pakistan",
+    url: "https://origiganicsbywallian.com/",
+    description: "Pakistan's premier online destination for 100% organic products, natural food, chemical-free organic oils, and home made products",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate: "https://origiganicsbywallian.com/products?search={search_term_string}"
+      },
+      "query-input": "required name=search_term_string"
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "Origiganics by Wallian",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://origiganicsbywallian.com/logo.jpeg"
+      }
+    }
   }
 
   return (
@@ -171,10 +274,16 @@ export default function RootLayout({
         {/* DNS Prefetch */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         
-        {/* Structured Data - JSON-LD */}
+        {/* Structured Data - JSON-LD for Organization Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
+        
+        {/* Structured Data - JSON-LD for WebSite Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
       <body className={`${inter.className} antialiased`}>
