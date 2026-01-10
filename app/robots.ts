@@ -2,15 +2,8 @@ export default function robots() {
   return {
     rules: [
       {
-        userAgent: 'Googlebot',
-        allow: '/',
-      },
-      {
-        userAgent: 'Googlebot-Image',
-        allow: '/',
-      },
-      {
         userAgent: '*',
+        allow: '/',
         disallow: [
           '/admin/',
           '/api/admin/',
