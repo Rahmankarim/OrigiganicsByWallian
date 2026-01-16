@@ -101,7 +101,19 @@ export default function RootLayout({
     name: "Origiganics by Wallian",
     alternateName: "Origiganics Pakistan",
     url: "https://origiganicsbywallian.com/",
-    logo: "https://origiganicsbywallian.com/logo.jpeg",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://origiganicsbywallian.com/logo.jpeg",
+      width: "600",
+      height: "600",
+      contentUrl: "https://origiganicsbywallian.com/logo.jpeg"
+    },
+    image: {
+      "@type": "ImageObject",
+      url: "https://origiganicsbywallian.com/logo.jpeg",
+      width: "600",
+      height: "600"
+    },
     description: "Leading provider of premium organic dry fruits, natural beauty products, organic oils, and chemical-free organic products sourced from Pakistan's finest orchards. Committed to quality, sustainability, and natural wellness.",
     slogan: "Nature's Richest, Delivered to Your Door",
     
